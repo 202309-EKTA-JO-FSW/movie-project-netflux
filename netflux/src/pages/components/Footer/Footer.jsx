@@ -15,14 +15,13 @@ const Footer = () => {
     {
       name: 'Yara Jaber',
       github: 'https://github.com/YaraJaber',
-      linkedin: 'https://www.linkedin.com/in/yarajaber98?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
+      linkedin: 'https://www.linkedin.com/in/yarajaber98/',
     },
     {
       name: 'Yousef Abunameh',
       github: 'https://github.com/Yousef-AN',
-      linkedin: 'https://www.linkedin.com/in/Yousef-Abunameh', // Update with the correct LinkedIn link when available
+      linkedin: 'https://www.linkedin.com/in/Yousef-Abunameh/',
     },
-    // Add other team members similarly
   ];
 
   return (
@@ -43,7 +42,7 @@ const Footer = () => {
           ))}
         </ul>
       </div>
-      <p>Credit to the team for their valuable contributions!</p>
+      <p>Credit Goes to : Yousef Abunameh, Yara Jaber, Sanad Alshobaki, Ahmed Shalash  </p>
     </footer>
   );
 };
