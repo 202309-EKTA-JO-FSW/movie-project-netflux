@@ -1,0 +1,51 @@
+
+.container {
+  text-align: center;
+}
+
+.searchContainer {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchInput {
+  padding: 8px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.searchButton {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.actorCardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.actorCard {
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.actorImage {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.actorName {
+  margin-top: 10px;
+  font-weight: bold;
+}
