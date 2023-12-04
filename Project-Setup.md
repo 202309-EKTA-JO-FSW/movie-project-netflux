@@ -47,7 +47,7 @@ module.exports = {
   semi: false,
   singleQuote: false, // Do you want to use double or single quotations?
   trailingComma: "all",
-};
+}
 ```
 
 Add the following to `package.json` in the script property

@@ -1,4 +1,4 @@
-import { defaultImage } from "./defultImage"
+import { defaultImage } from "./defaultImage"
 
 const TMDB_API_KEY = "1e3ba2c2144bfdc63d5615205918151c"
 
