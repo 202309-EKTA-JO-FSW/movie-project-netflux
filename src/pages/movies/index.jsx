@@ -7,7 +7,7 @@ const MovieList = ({ genres }) => {
 
   return (
     <div className="section-title">
-      <h1>{genres.toUpperCase()} </h1>
+      <h1>{genres} </h1>
       {movies.length > 0 ? (
         <div className="moviesGrid">
           {movies.map((movie) => (
