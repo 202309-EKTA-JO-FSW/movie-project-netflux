@@ -59,7 +59,6 @@ const MovieDetailsPage = ({ movie }) => {
         })}
       </ul>
 
-      {/* Add more details as needed */}
       <ul>
         {movie.genres.map((x) => (
           <li key={x.id}>{x.name}</li>
@@ -113,18 +112,6 @@ export async function getStaticPaths() {
   return { paths, fallback: true }
 }
 
-// export async function getStaticProps({ params }) {
-//   const movieId = params.movieId
-//   const movie = await getMovieDetails(movieId)
-
-//   return {
-//     props: {
-//       movie,
-//     },
-//     revalidate: 60 * 60, // Revalidate the page every hour
-//   }
-// }
-
 export async function getStaticProps({ params }) {
   try {
     const movieId = params.movieId;
@@ -134,7 +121,7 @@ export async function getStaticProps({ params }) {
       props: {
         movie,
       },
-      revalidate: 60 * 60, // Revalidate the page every hour
+      revalidate: 60 * 60,
     };
   } catch (error) {
     console.error('Error fetching movie details:', error.message);
