@@ -1,50 +1,66 @@
 import React from "react"
 import Link from "next/link"
 import { useMovieList } from "@/utils/moviesList"
+import {
+  Container,
+  Row,
+  Col,
+  Card,
+  CardImg,
+  CardBody,
+  CardTitle,
+  CardText,
+} from "reactstrap"
 
+const formatGenre = (genre) => {
+  if (!genre) return ""
+  const formattedGenre = genre.replace(/_/g, " ")
+  return formattedGenre.charAt(0).toUpperCase() + formattedGenre.slice(1)
+}
 const MovieList = ({ genres }) => {
   const movies = useMovieList(genres)
 
+  const formattedGenres = formatGenre(genres)
+
   return (
-    <div className="section-title">
-      <h1>{genres} </h1>
+    <Container>
+      <Row style={{ marginBottom: "20px" }}>
+        <h1 style={{ color: "#e6b31e" }}>{formattedGenres}</h1>
+      </Row>
       {movies.length > 0 ? (
-        <div className="moviesGrid">
+        <Row>
           {movies.map((movie) => (
-            <div
-              key={movie.id}
-              style={{
-                width: "250px",
-                margin: "16px",
-                border: "1px solid #ddd",
-                padding: "16px",
-              }}
-            >
+            <Col key={movie.id} md={4} style={{ marginBottom: "16px" }}>
               <Link
                 href={`/movies/${movie.id}`}
-                style={{ textDecoration: "none", color: "wheat" }}
+                passHref
+                style={{ textDecoration: "none" }}
               >
-                <h2>{movie.title}</h2>
-
-                {movie.poster_path ? (
-                  <img
-                    src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                    alt={`${movie.title} Poster`}
-                    style={{ height: "240px" }}
-                    className="movie--image"
-                  />
-                ) : (
-                  <p>No poster available</p>
-                )}
-                <p>{movie.release_date}</p>
+                <Card>
+                  {movie.poster_path ? (
+                    <CardImg
+                      top
+                      src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                      alt={`${movie.title} Poster`}
+                      className="movie--image"
+                      maxHeight={"420px"}
+                    />
+                  ) : (
+                    <p>No poster available</p>
+                  )}
+                  <CardBody className="text-center">
+                    <CardTitle tag="h5">{movie.title}</CardTitle>
+                    <CardText>{movie.release_date}</CardText>
+                  </CardBody>
+                </Card>
               </Link>
-            </div>
+            </Col>
           ))}
-        </div>
+        </Row>
       ) : (
         <p>Loading...</p>
       )}
-    </div>
+    </Container>
   )
 }
 

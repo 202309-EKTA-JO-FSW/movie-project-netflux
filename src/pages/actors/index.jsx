@@ -60,9 +60,7 @@ const Actors = () => {
               alt={`Image of ${actor.name}`}
               className="actorImage"
             />
-            <div style={{ color: "white" }} className="actorName">
-              {actor.name}
-            </div>
+            <div className="actorName">{actor.name}</div>
           </div>
         ))}
       </div>

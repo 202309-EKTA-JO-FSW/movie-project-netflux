@@ -1,6 +1,7 @@
 import Head from "next/head"
 import { Inter } from "next/font/google"
 import MovieList from "./movies"
+import HeroSection from "./components/Hero/Hero"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -14,6 +15,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div id="search"></div>
+      <HeroSection />
       <MovieList genres={"now_playing"} />
     </>
   )

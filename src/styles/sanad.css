@@ -1,1 +1,102 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
+
+body {
+  font-family: "Arial";
+  margin: 0;
+  padding: 0;
+  background-color: #191919;
+}
+
+.transparent-button {
+  background-color: #e6b31e;
+  border: none;
+  color: #ffffff;
+}
+
+.container {
+  text-align: center;
+  padding: 50px;
+}
+
+.searchContainer {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchInput {
+  padding: 15px;
+  width: 400px;
+  border: 2px solid #3498db;
+  border-radius: 30px;
+  margin-right: 10px;
+  font-size: 16px;
+  color: #555;
+  outline: none;
+}
+
+.searchButton {
+  padding: 15px 30px;
+  border: 2px solid #3498db;
+  border-radius: 30px;
+  cursor: pointer;
+  background-color: #3498db;
+  color: #fff;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  outline: none;
+}
+
+.searchButton:hover {
+  background-color: #267bbd;
+}
+
+.actorCardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.actorCard {
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+  border: 2px solid #3498db;
+  border-radius: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.actorCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+}
+
+.actorImage {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.actorCard:hover .actorImage {
+  transform: scale(1.1);
+}
+
+.actorName {
+  margin-top: 15px;
+  font-weight: bold;
+  color: #333;
+  font-size: 18px;
+}
+
+.searchButton:hover {
+  background-color: #267bbd;
+  transform: translateY(-2px);
+}
