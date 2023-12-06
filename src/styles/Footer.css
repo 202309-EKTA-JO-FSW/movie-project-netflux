@@ -1,0 +1,32 @@
+
+/* Style for the footer */
+footer {
+    background-color: #343a40; /* Dark background color */
+    color: #ffffff; /* White text color */
+    padding: 40px 20px;
+    border-top: 1px solid #ffffff; /* White border */
+  }
+  
+  /* Style for the team members list */
+  ul.list-group {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  /* Style for individual list items */
+  ul.list-group li {
+    border: none; /* No border for list items */
+    padding-bottom: 15px;
+  }
+  
+  /* Style for links */
+  ul.list-group li a {
+    color: #ffffff; /* White link color */
+  }
+  
+  /* Style for the credit paragraph */
+  p.text-muted {
+    margin-top: 20px;
+    color: #ffffff; /* White text color */
+  }
+  

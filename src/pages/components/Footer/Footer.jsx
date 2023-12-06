@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faReddit, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 const teamMembers = [
   {
@@ -29,7 +29,7 @@ const teamMembers = [
 
 const Footer = () => {
   const iconStyles = {
-    color: "#FF5700", // Example color for Reddit icon
+    color: "#FF5700", // Example color for GitHub icon
     marginRight: "5px", // Adjust spacing as needed
     fontSize: "24px", // Adjust size as needed
   };
@@ -52,9 +52,9 @@ const Footer = () => {
               </p>
             </Col>
             <Col xs={12} md={6} className="d-flex align-items-center justify-content-md-end">
-              <FontAwesomeIcon icon={faReddit} style={iconStyles} />
-              <a href={member.reddit} className="text-light" target="_blank" rel="noopener noreferrer">
-                Reddit
+              <FontAwesomeIcon icon={faGithub} style={iconStyles} />
+              <a href={member.github} className="text-light" target="_blank" rel="noopener noreferrer">
+                GitHub
               </a>
               <span className="mx-3">|</span>
               <FontAwesomeIcon icon={faLinkedin} style={iconStyles} />
