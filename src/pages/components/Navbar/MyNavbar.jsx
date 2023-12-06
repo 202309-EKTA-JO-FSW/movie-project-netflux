@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from "react"
 import { getMovieGenres } from "@/utils/moviesByGenres"
 import { useRouter } from "next/router"
-import MovieTypeDropdown from './MovieTypeDropdown'
-import GenreDropdown from './GenreDropdown'
-import SearchBox from './SearchBox'
+import MovieTypeDropdown from "./MovieTypeDropdown"
+import GenreDropdown from "./GenreDropdown"
+import SearchBox from "./SearchBox"
 
-import { Navbar, NavbarBrand, NavbarToggler, Collapse, Nav, NavItem, NavLink } from 'reactstrap';
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarToggler,
+  Collapse,
+  Nav,
+  NavItem,
+  NavLink,
+} from "reactstrap"
 
 export default function MyNavbar() {
   const router = useRouter()
@@ -13,11 +21,11 @@ export default function MyNavbar() {
   const [selectedGenre, setSelectedGenre] = useState("")
   const [selectedMovieType, setSelectedMovieType] = useState("")
 
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
   const toggleNavbar = () => {
-    setIsOpen(!isOpen);
-  };
+    setIsOpen(!isOpen)
+  }
 
   useEffect(() => {
     const fetchGenres = async () => {
@@ -48,10 +56,7 @@ export default function MyNavbar() {
   return (
     <Navbar color="dark" dark expand="md">
       <NavbarBrand href="/">
-        <img
-          src="/images/logo.png"
-          alt="Netflux Logo - Movies Website"
-        />
+        <img src="/images/logo.png" alt="Netflux Logo - Movies Website" />
       </NavbarBrand>
       <NavbarToggler onClick={toggleNavbar} />
       <Collapse isOpen={isOpen} navbar>
@@ -62,8 +67,15 @@ export default function MyNavbar() {
           <NavItem>
             <NavLink href="/actors">Actors</NavLink>
           </NavItem>
-          <GenreDropdown genres={genres} selectedGenre={selectedGenre} handleGenreChange={handleGenreChange} />
-          <MovieTypeDropdown selectedMovieType={selectedMovieType} handleMovieTypeChange={handleMovieTypeChange} />
+          <GenreDropdown
+            genres={genres}
+            selectedGenre={selectedGenre}
+            handleGenreChange={handleGenreChange}
+          />
+          <MovieTypeDropdown
+            selectedMovieType={selectedMovieType}
+            handleMovieTypeChange={handleMovieTypeChange}
+          />
         </Nav>
         <SearchBox handleSearch={handleSearch} />
       </Collapse>
