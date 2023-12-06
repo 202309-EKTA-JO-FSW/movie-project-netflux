@@ -114,21 +114,21 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   try {
-    const movieId = params.movieId;
-    const movie = await getMovieDetails(movieId);
+    const movieId = params.movieId
+    const movie = await getMovieDetails(movieId)
 
     return {
       props: {
         movie,
       },
       revalidate: 60 * 60,
-    };
+    }
   } catch (error) {
-    console.error('Error fetching movie details:', error.message);
+    console.error("Error fetching movie details:", error.message)
 
     return {
       notFound: true,
-    };
+    }
   }
 }
 

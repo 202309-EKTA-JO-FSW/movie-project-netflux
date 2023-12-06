@@ -1,4 +1,5 @@
 import { defaultImage } from "@/utils/defaultImage"
+import Link from "next/link"
 import { useRouter } from "next/router"
 import React from "react"
 
@@ -22,15 +23,17 @@ const Search = ({ searchResults }) => {
         <h2 style={{ color: "blue", fontSize: "100px" }}>Movies</h2>
         <ul>
           {movies.map((movie) => (
-            <li key={movie.id} style={{ fontSize: "50px", color: "white" }}>
-              {movie.title}
-              {movie.poster_path && (
-                <img
-                  src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-                  alt=""
-                />
-              )}
-            </li>
+            <Link href={`/movies/${movie.id}`}>
+              <li key={movie.id} style={{ fontSize: "50px", color: "white" }}>
+                {movie.title}
+                {movie.poster_path && (
+                  <img
+                    src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+                    alt=""
+                  />
+                )}
+              </li>
+            </Link>
           ))}
         </ul>
       </div>
@@ -40,17 +43,19 @@ const Search = ({ searchResults }) => {
         <h2 style={{ color: "blue", fontSize: "100px" }}>Actors</h2>
         <ul>
           {actors.map((actor) => (
-            <li key={actor.id} style={{ fontSize: "50px", color: "white" }}>
-              {actor.name}
-              {actor.profile_path ? (
-                <img
-                  src={`https://image.tmdb.org/t/p/w300${actor.profile_path}`}
-                  alt=""
-                />
-              ) : (
-                <img src={defaultImage} alt="" />
-              )}
-            </li>
+            <Link href={`/actors/${actor.id}`}>
+              <li key={actor.id} style={{ fontSize: "50px", color: "white" }}>
+                {actor.name}
+                {actor.profile_path ? (
+                  <img
+                    src={`https://image.tmdb.org/t/p/w300${actor.profile_path}`}
+                    alt=""
+                  />
+                ) : (
+                  <img src={defaultImage} alt="" />
+                )}
+              </li>
+            </Link>
           ))}
         </ul>
       </div>
