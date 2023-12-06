@@ -20,8 +20,6 @@ const MoviesByGenre = () => {
     fetchMoviesByGenre()
   }, [type, id])
 
-  console.log(movies)
-
   return (
     <div>
       {/* let id be the genre rather than a number */}

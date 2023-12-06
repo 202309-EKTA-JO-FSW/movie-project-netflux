@@ -1,12 +1,12 @@
 import React from "react"
-import Navbar from "./Navbar/Navbar"
+import MyNavbar from "./Navbar/MyNavbar"
 import Footer from "./Footer/Footer"
 
 export default function Layout({ children }) {
   return (
     <>
       <header>
-        <Navbar />
+        <MyNavbar />
       </header>
       <main>{children}</main>
       {/* <Footer /> */}
