@@ -1,9 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Cairo&display=swap");
-
-/* Changing the default style of user agent style-sheet 
-# good to do this in every website u create
-* it's mean for every element in this html file
-*/
+/* styles.css */
+@import "~bootstrap/dist/css/bootstrap.min.css";
 
 * {
   margin: 0;

@@ -12,7 +12,7 @@ const ActorDetailsPage = ({ actor }) => {
 
   return (
     <div className="container">
-      <div className="section-title" style={{ color: "white" }}>
+      <div className="section-title" style={{ color: "black" }}>
         <h1>Actor page</h1>
         {actor.profile_path ? (
           <img
