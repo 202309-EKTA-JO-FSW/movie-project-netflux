@@ -1,28 +1,42 @@
-import React, { useState } from 'react';
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import React, { useState } from "react"
+import {
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+} from "reactstrap"
 
 const MovieTypeDropdown = ({ selectedMovieType, handleMovieTypeChange }) => {
-    const [dropdownOpen, setDropdownOpen] = useState(false);
-    const toggleDropdown = () => {
-        setDropdownOpen(!dropdownOpen);
-    };
+  const [dropdownOpen, setDropdownOpen] = useState(false)
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen)
+  }
 
-    return (
-        <Dropdown nav isOpen={dropdownOpen} toggle={toggleDropdown}>
-            <DropdownToggle nav caret >
-                {selectedMovieType === '' ? 'Select Movie Type' : selectedMovieType}
+  return (
+    <Dropdown nav isOpen={dropdownOpen} toggle={toggleDropdown}>
+      <DropdownToggle nav caret>
+        {selectedMovieType === "" ? "Select Movie Type" : selectedMovieType}
+      </DropdownToggle>
+      <DropdownMenu>
+        <DropdownItem disabled onClick={() => handleMovieTypeChange("")}>
+          Select Movies Type
+        </DropdownItem>
+        <DropdownItem onClick={() => handleMovieTypeChange("top_rated")}>
+          Top Rated
+        </DropdownItem>
+        <DropdownItem onClick={() => handleMovieTypeChange("popular")}>
+          Popular
+        </DropdownItem>
+        {/* <DropdownItem onClick={() => handleMovieTypeChange('latest')}>Latest</DropdownItem> */}
+        <DropdownItem onClick={() => handleMovieTypeChange("now_playing")}>
+          Now Playing
+        </DropdownItem>
+        <DropdownItem onClick={() => handleMovieTypeChange("upcoming")}>
+          Upcoming
+        </DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
+  )
+}
 
-            </DropdownToggle>
-            <DropdownMenu>
-                <DropdownItem disabled onClick={() => handleMovieTypeChange('')}>Select Movies Type</DropdownItem>
-                <DropdownItem onClick={() => handleMovieTypeChange('top_rated')}>Top Rated</DropdownItem>
-                <DropdownItem onClick={() => handleMovieTypeChange('popular')}>Popular</DropdownItem>
-                {/* <DropdownItem onClick={() => handleMovieTypeChange('latest')}>Latest</DropdownItem> */}
-                <DropdownItem onClick={() => handleMovieTypeChange('now_playing')}>Now Playing</DropdownItem>
-                <DropdownItem onClick={() => handleMovieTypeChange('upcoming')}>Upcoming</DropdownItem>
-            </DropdownMenu>
-        </Dropdown>
-    );
-};
-
-export default MovieTypeDropdown;
+export default MovieTypeDropdown
