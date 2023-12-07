@@ -13,7 +13,6 @@ const Search = ({ searchResults }) => {
   )
   const tvs = searchResults.filter((result) => result.media_type === "tv")
 
-  console.log(tvs)
   return (
     <Container>
       <div style={{ color: "white" }}>

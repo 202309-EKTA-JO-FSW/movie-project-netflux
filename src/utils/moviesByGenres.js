@@ -18,6 +18,30 @@ export const getMovieGenres = async () => {
     throw error
   }
 }
+export const getGenreById = async (genreId) => {
+  try {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`,
+    )
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch genres")
+    }
+
+    const data = await response.json()
+    const genres = data.genres
+    const selectedGenre = genres.find((genre) => genre.id === genreId)
+
+    if (!selectedGenre) {
+      throw new Error("Genre not found")
+    }
+
+    return selectedGenre
+  } catch (error) {
+    console.error("Error fetching genre:", error.message)
+    throw error
+  }
+}
 
 export const getMoviesByGenre = async (genreId) => {
   try {

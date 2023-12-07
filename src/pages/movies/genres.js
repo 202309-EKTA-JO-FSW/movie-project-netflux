@@ -1,6 +1,10 @@
 import { useRouter } from "next/router"
 import React, { useEffect, useState } from "react"
-import { getMoviesByGenre, getMoviesByType } from "@/utils/moviesByGenres"
+import {
+  getMoviesByGenre,
+  getMoviesByType,
+  getGenreById,
+} from "@/utils/moviesByGenres"
 import {
   Container,
   Row,
@@ -17,11 +21,22 @@ const MoviesByGenre = () => {
   const router = useRouter()
   const { id, type } = router.query
   const [movies, setMovies] = useState([])
+  const [genre, setGenreName] = useState([])
+
   useEffect(() => {
     const fetchMoviesByGenre = async () => {
       if (id) {
-        const moviesByGenre = await getMoviesByGenre(id)
+        // Ensure id is a number
+        const genreId = parseInt(id, 10)
+        if (isNaN(genreId)) {
+          console.error("Invalid genre ID:", id)
+          return
+        }
+        const moviesByGenre = await getMoviesByGenre(genreId)
         setMovies(moviesByGenre)
+
+        const genreName = await getGenreById(genreId)
+        setGenreName(genreName)
       } else if (type) {
         const moviesByGenre = await getMoviesByType(type)
         setMovies(moviesByGenre)
@@ -31,27 +46,16 @@ const MoviesByGenre = () => {
     fetchMoviesByGenre()
   }, [type, id])
 
-  return (
-    // <div>
-    //   {/* let id be the genre rather than a number */}
-    //   <h1>{type || id} </h1>
-    //   <ul>
-    //     {movies.map((movie) => (
-    //       <li key={movie.id}>
-    //         {movie.title}
-    //         <img
-    //           src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-    //           alt={`${movie.title} Poster`}
-    //           style={{ maxWidth: "100%", height: "auto" }}
-    //         />
-    //       </li>
-    //     ))}
-    //   </ul>
-    // </div>
+  const formatType = (type) => {
+    if (!type) return ""
+    const formattedType = type.replace(/_/g, " ")
+    return formattedType.charAt(0).toUpperCase() + formattedType.slice(1)
+  }
 
+  return (
     <Container>
       <Row style={{ marginBottom: "20px" }}>
-        <h1 style={{ color: "#e6b31e" }}>{type || id} </h1>
+        <h1 style={{ color: "#e6b31e" }}>{formatType(type) || genre.name} </h1>
       </Row>
       {movies.length > 0 ? (
         <Row>
@@ -69,7 +73,6 @@ const MoviesByGenre = () => {
                       src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                       alt={`${movie.title} Poster`}
                       className="movie--image"
-                      maxHeight={"420px"}
                     />
                   ) : (
                     <p>No poster available</p>

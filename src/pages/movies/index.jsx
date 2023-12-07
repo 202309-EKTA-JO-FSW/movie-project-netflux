@@ -17,6 +17,7 @@ const formatGenre = (genre) => {
   const formattedGenre = genre.replace(/_/g, " ")
   return formattedGenre.charAt(0).toUpperCase() + formattedGenre.slice(1)
 }
+
 const MovieList = ({ genres }) => {
   const movies = useMovieList(genres)
 
@@ -33,8 +34,8 @@ const MovieList = ({ genres }) => {
             <Col key={movie.id} md={4} style={{ marginBottom: "16px" }}>
               <Link
                 href={`/movies/${movie.id}`}
-                passHref
                 style={{ textDecoration: "none" }}
+                passHref
               >
                 <Card>
                   {movie.poster_path ? (
@@ -43,7 +44,6 @@ const MovieList = ({ genres }) => {
                       src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                       alt={`${movie.title} Poster`}
                       className="movie--image"
-                      maxHeight={"420px"}
                     />
                   ) : (
                     <p>No poster available</p>
