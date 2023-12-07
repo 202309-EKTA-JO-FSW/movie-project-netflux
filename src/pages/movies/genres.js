@@ -38,8 +38,8 @@ const MoviesByGenre = () => {
         const genreName = await getGenreById(genreId)
         setGenreName(genreName)
       } else if (type) {
-        const moviesByGenre = await getMoviesByType(type)
-        setMovies(moviesByGenre)
+        const moviesByType = await getMoviesByType(type)
+        setMovies(moviesByType)
       }
     }
 
