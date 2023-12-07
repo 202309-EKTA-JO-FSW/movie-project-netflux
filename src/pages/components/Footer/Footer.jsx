@@ -1,4 +1,6 @@
 import React from "react"
+import { MDBIcon } from "mdb-react-ui-kit"
+import { Container, Row, Col, Button } from "reactstrap"
 
 const Footer = () => {
   const teamMembers = [
@@ -21,30 +23,50 @@ const Footer = () => {
     {
       name: "Yousef Abunameh",
       github: "https://github.com/Yousef-AN",
-      linkedin: "https://www.linkedin.com/in/Yousef-Abunameh", // Update with the correct LinkedIn link when available
+      linkedin: "https://www.linkedin.com/in/Yousef-Abunameh",
     },
-    // Add other team members similarly
   ]
 
   return (
-    <footer>
-      <div>
-        <h3>Team Members</h3>
-        <ul>
+    <footer className="bg-dark text-white p-2">
+      <Container>
+        <Row>
           {teamMembers.map((member, index) => (
-            <li key={index}>
-              <p>Name: {member.name}</p>
-              <p>
-                Github: <a href={member.github}>{member.github}</a>
-              </p>
-              <p>
-                LinkedIn: <a href={member.linkedin}>{member.linkedin}</a>
-              </p>
-            </li>
+            <Col key={index} md="3">
+              <h5 style={{ color: "#e6b31e", fontWeight: "300" }}>
+                {member.name}
+              </h5>
+              <Button
+                color="link"
+                className="fs-4"
+                href={member.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <MDBIcon fab className="fa-linkedin" />
+              </Button>
+              <Button
+                color="link"
+                className=" fs-4"
+                href={member.github}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <MDBIcon fab className="fa-github" />
+              </Button>
+            </Col>
           ))}
-        </ul>
+        </Row>
+      </Container>
+
+      <div
+        className="text-center text-light p-3"
+        style={{ backgroundColor: "rgba(0, 0, 0, 0.1)" }}
+      >
+        <p style={{ fontFamily: "Tahoma" }}>
+          Credit to the team for their valuable contributions!
+        </p>
       </div>
-      <p>Credit to the team for their valuable contributions!</p>
     </footer>
   )
 }
