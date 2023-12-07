@@ -20,6 +20,7 @@ export default function MyNavbar() {
   const [genres, setGenres] = useState([])
   const [selectedGenre, setSelectedGenre] = useState("")
   const [selectedMovieType, setSelectedMovieType] = useState("")
+  const [searchQuery, setSearchQuery] = useState("")
 
   const [isOpen, setIsOpen] = useState(false)
 
@@ -39,8 +40,11 @@ export default function MyNavbar() {
     fetchGenres()
   }, [])
 
-  const handleSearch = (query) => {
-    router.push(`/search?q=${query}`)
+  const handleSearch = (searchQuery) => {
+    if (searchQuery.trim() !== "") {
+      router.push(`/search?q=${searchQuery}`)
+      setSearchQuery("")
+    }
   }
 
   const handleGenreChange = (genreId) => {
@@ -65,7 +69,9 @@ export default function MyNavbar() {
             <NavLink href="/">Home</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/actors">Actors</NavLink>
+            <NavLink href="/actors" style={{ color: "#e6b31e" }}>
+              Actors
+            </NavLink>
           </NavItem>
           <GenreDropdown
             genres={genres}

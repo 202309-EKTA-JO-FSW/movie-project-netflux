@@ -14,8 +14,8 @@ const MovieTypeDropdown = ({ selectedMovieType, handleMovieTypeChange }) => {
 
   return (
     <Dropdown nav isOpen={dropdownOpen} toggle={toggleDropdown}>
-      <DropdownToggle nav caret>
-        {selectedMovieType === "" ? "Select Movie Type" : selectedMovieType}
+      <DropdownToggle nav caret style={{ color: "#e6b31e" }}>
+        {selectedMovieType === "" ? "Movies" : selectedMovieType}
       </DropdownToggle>
       <DropdownMenu>
         <DropdownItem disabled onClick={() => handleMovieTypeChange("")}>
