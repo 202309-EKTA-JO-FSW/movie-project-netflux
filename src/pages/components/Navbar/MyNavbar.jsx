@@ -69,7 +69,9 @@ export default function MyNavbar() {
             <NavLink href="/">Home</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/actors">Actors</NavLink>
+            <NavLink href="/actors" style={{ color: "#e6b31e" }}>
+              Actors
+            </NavLink>
           </NavItem>
           <GenreDropdown
             genres={genres}

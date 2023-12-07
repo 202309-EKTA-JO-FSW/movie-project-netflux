@@ -41,12 +41,7 @@ const Actors = () => {
           onChange={(e) => setSearchTerm(e.target.value)}
           className="searchInput"
         />
-        <button
-          onClick={() => console.log("Search button clicked")}
-          className="searchButton"
-        >
-          Search
-        </button>
+        <button className="searchButton">Search</button>
       </div>
       <div className="actorCardsContainer">
         {filteredActors.map((actor) => (

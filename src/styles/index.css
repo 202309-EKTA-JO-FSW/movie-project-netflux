@@ -5,8 +5,12 @@ body {
   margin: 0;
   padding: 0;
   background-color: #191919;
+  color: #ffffff;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-
+a {
+  text-decoration: none;
+}
 .transparent-button {
   background-color: #e6b31e;
   border: none;
@@ -28,7 +32,7 @@ body {
 .searchInput {
   padding: 15px;
   width: 400px;
-  border: 2px solid #3498db;
+  border: 2px solid #e6b31e;
   border-radius: 30px;
   margin-right: 10px;
   font-size: 16px;
@@ -38,18 +42,14 @@ body {
 
 .searchButton {
   padding: 15px 30px;
-  border: 2px solid #3498db;
+  border: 2px solid #191919;
   border-radius: 30px;
   cursor: pointer;
-  background-color: #3498db;
+  background-color: #191919;
   color: #fff;
   font-size: 16px;
   transition: background-color 0.3s ease;
   outline: none;
-}
-
-.searchButton:hover {
-  background-color: #267bbd;
 }
 
 .actorCardsContainer {
@@ -97,6 +97,6 @@ body {
 }
 
 .searchButton:hover {
-  background-color: #267bbd;
+  background-color: #e6b31e;
   transform: translateY(-2px);
 }

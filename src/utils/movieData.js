@@ -1,5 +1,3 @@
-import { defaultImage } from "./defaultImage"
-
 const TMDB_API_KEY = "1e3ba2c2144bfdc63d5615205918151c"
 
 export async function getMovieDetails(movieId) {
@@ -24,16 +22,6 @@ export async function getMovieDetails(movieId) {
 
   const creditsData = await creditsResponse.json()
 
-  // Extract information about the main 5 actors
-  const castName = creditsData.cast.slice(0, 5).map((actor) => actor.name)
-
-  const castPicsAndIds = creditsData.cast.slice(0, 5).map((actor) => ({
-    profilePath: actor.profile_path
-      ? `https://image.tmdb.org/t/p/w200/${actor.profile_path}`
-      : `${defaultImage}`,
-    actorId: actor.id,
-  }))
-
   // Fetch related movies
   const relatedResponse = await fetch(
     `https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=${TMDB_API_KEY}&language=en-US&page=1`,
@@ -46,11 +34,14 @@ export async function getMovieDetails(movieId) {
   const relatedData = await relatedResponse.json()
 
   // Extract information about related movies
-  const relatedMovies = relatedData.results.slice(0, 5).map((relatedMovie) => ({
-    id: relatedMovie.id,
-    title: relatedMovie.title,
-    posterPath: relatedMovie.poster_path,
-  }))
+  const relatedMovies = relatedData.results
+    .filter((relatedMovie) => relatedMovie.poster_path)
+    .slice(0, 5)
+    .map((relatedMovie) => ({
+      id: relatedMovie.id,
+      title: relatedMovie.title,
+      posterPath: relatedMovie.poster_path,
+    }))
 
   // Fetch movie videos (trailers)
   const videosResponse = await fetch(
@@ -66,10 +57,9 @@ export async function getMovieDetails(movieId) {
   const movieDetails = {
     ...movieData,
     creditsData,
-    castName,
-    castPicsAndIds,
     relatedMovies,
     trailers: videosData.results.filter((video) => video.type === "Trailer"),
+    director: creditsData.crew.filter((person) => person.job === "Director"),
   }
 
   return movieDetails

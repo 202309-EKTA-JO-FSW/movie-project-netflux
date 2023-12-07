@@ -50,7 +50,9 @@ const MovieList = ({ genres }) => {
                   )}
                   <CardBody className="text-center">
                     <CardTitle tag="h5">{movie.title}</CardTitle>
-                    <CardText>{movie.release_date}</CardText>
+                    <CardText style={{ color: "#e6b31e" }}>
+                      {movie.release_date}
+                    </CardText>
                   </CardBody>
                 </Card>
               </Link>
