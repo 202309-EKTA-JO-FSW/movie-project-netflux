@@ -2,6 +2,7 @@ import Head from "next/head"
 import { Inter } from "next/font/google"
 import MovieList from "./movies"
 import HeroSection from "./components/Hero/Hero"
+import "@fortawesome/fontawesome-free/css/all.min.css"
 
 const inter = Inter({ subsets: ["latin"] })
 
